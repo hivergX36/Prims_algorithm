@@ -1,8 +1,8 @@
 class Edges
 {
-    public: 
+    public:
 
-    int x,y,p; 
+    int x,y,p;
 };
 
 
