@@ -2,29 +2,32 @@
 #include <iostream>
 #include <vector>
 #include "successor.hpp"
-class adgency_list {
+class Adgency_list {
 
     private:
         int V; // Number of vertices
         std::vector<succ>* list; // Array of edges
-        Edges *edges;
 
     public:
-        adgency_list(int V) {
+        Adgency_list(int V) {
             this->V = V;
             list = new std::vector<succ>[V];
-            edges = new Edges[V];
         }
 
-        ~adgency_list() {
+        ~Adgency_list() {
             delete[] list;
-            delete[] edges;
         }
 
         void add_edge(Edges &edge) {
-            list[edge.x].push_back({edge.y, edge.p});
+            list[edge.x].push_back(succ(edge.y, edge.p));
 
         }
+
+        void add_edge(int x, int y, int weight) {
+            list[x].push_back(succ(y, weight));
+        }
+
+      
 
         void display_adjacency_list(){
             for (int i = 0; i < V; i++) {
