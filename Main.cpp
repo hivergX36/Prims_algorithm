@@ -1,26 +1,13 @@
 #include <iostream>
+#include "Prim.hpp"
 
 
-void display(int& a) {
-    std::cout << "Value: " << a << std::endl;
-};
 int main() {
-    int a = 0;
-    int b = 0;
-    int tab[5] = {1, 2, 3, 4, 5};
-    int* p = &a; 
-    for (int i = 0; i < 5; i++) {
-        *p += i;
-        std::cout << "a: " << a  << std::endl;
-        display(a);
-        std::cout << "p: " << p << std::endl;
-        std::cout << "&a: " << &a << std::endl;
-        std::cout << "*a" << *&a << std::endl;
-        std::cout << "tab[i]: " << &tab + i << std::endl;
-        std::cout << "tab[i]: " << &tab[i] << std::endl;
+  Prim prim = Prim(5);
+  prim.parse_data("data.txt");
+  prim.display_adjacency_list();
+  prim.run_prim();
+  prim.display_result_path();
 
-
-     }
-    std::cout << std::endl;
-    return 0;
+       
 }

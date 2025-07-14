@@ -1,14 +1,13 @@
-#include "edge.hpp"
+#include "Edges.hpp"
 #include <iostream>
 #include <vector>
 #include "successor.hpp"
 class Adgency_list {
 
-    private:
+    public:
         int V; // Number of vertices
         std::vector<succ>* list; // Array of edges
 
-    public:
         Adgency_list(int V) {
             this->V = V;
             list = new std::vector<succ>[V];
@@ -30,7 +29,7 @@ class Adgency_list {
       
 
         void display_adjacency_list(){
-            for (int i = 0; i < V; i++) {
+            for (int i = 0; i < V; ++i) {
                 std::cout << "Vertex " << i << ": ";
                 for (const auto& succ : list[i]) {
                     std::cout << "(" << succ.successor << ", " << succ.weight << ") ";

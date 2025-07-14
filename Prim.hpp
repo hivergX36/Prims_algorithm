@@ -1,10 +1,9 @@
-#include "edge.hpp"
-#include "path.hpp"
+#include "Path.hpp"
 #include <vector>
 #include <fstream>
 #include <algorithm>
 #include <queue> 
-#include "adgency.hpp"
+#include "Adgency_list.hpp"
 
 class Prim
 {
@@ -31,7 +30,7 @@ class Prim
         adj_list->add_edge(u, v, weight);
     }
 
-    void parse_data(std::string &filename){
+    void parse_data(std::string filename){
      std::ifstream file(filename);
         if (!file) {
             std::cerr << "Error opening file: " << filename << std::endl;
@@ -53,6 +52,10 @@ class Prim
         }
     };
 
+    void display_adjacency_list() {
+        adj_list->display_adjacency_list();
+    }
+
     void run_prim() {
         while (!fifo.empty()) {
             int current_vertex = fifo.front();
@@ -71,6 +74,10 @@ class Prim
             }
         }
         // Implementation of Prim's algorithm
+    }
+
+    void display_result_path() {
+        result_path->display_path();
     }
 };
 
